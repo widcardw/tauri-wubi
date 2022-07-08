@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
 import { toggleDark } from '../composables/dark'
 
 const sideItems: Array<{
@@ -12,7 +11,7 @@ const sideItems: Array<{
   name: '主页',
   route: '/',
 }, {
-  icon: 'i-carbon-overlay',
+  icon: 'i-carbon-keyboard',
   name: '第一页',
   route: '/first',
 }, {
@@ -24,25 +23,28 @@ const router = useRouter()
 </script>
 
 <template>
-  <div h-100vh border-r="~ zinc-200 dark:zinc-700" class="w-3.2rem">
+  <div h-100vh bg="zinc-100 dark:zinc-800" class="w-2.5rem">
     <div
       v-for="it in sideItems" :key="it.name"
       cursor-pointer select-none
       transition duration-200 ease-in-out
-      p-4
-      border-rounded
-      overflow-hidden
+      p-2
       icon-btn
       :title="it.name"
       @click="router.push(it.route)"
     >
-      <div :class="it.icon" mr-2 />
+      <div :class="it.icon" mr-2 text-xl />
     </div>
-    <div class="icon-btn p4 !outline-none" @click="toggleDark()">
+    <div
+      class="!outline-none"
+      absolute bottom-0
+      icon-btn
+      p-2
+      text-xl
+      @click="toggleDark()"
+    >
       <div i="carbon-sun dark:carbon-moon" />
     </div>
   </div>
 </template>
 
-<style scoped>
-</style>

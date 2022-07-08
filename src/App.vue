@@ -7,8 +7,10 @@ import SideBar from './layouts/SideBar.vue'
 
 <template>
   <div flex>
-    <SideBar />
-    <RouterView />
+    <SideBar fixed />
+    <div class="ml-2.5rem">
+      <RouterView />
+    </div>
   </div>
 </template>
 
@@ -17,7 +19,7 @@ html.dark {
   background: #121212;
   color: grey;
 }
-html body {
+html, body {
   margin: 0;
   padding: 0;
 }
