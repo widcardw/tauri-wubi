@@ -56,10 +56,24 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 900,
         "resizable": true,
-        "title": "Tauri App",
-        "width": 800
+        "title": "Wubi",
+        "width": 1200,
+        "minHeight": 600,
+        "minWidth": 800
+      },
+      {
+        "label": "kbd",
+        "fullscreen": false,
+        "height": 383,
+        "resizable": false,
+        "title": "kbd",
+        "width": 1050,
+        "alwaysOnTop": true,
+        "visible": false,
+        "url": "/kbd",
+        "decorations": false
       }
     ]
   }
