@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   modelValue: string
-  fontSize?: number
-}>(), {
-  fontSize: 1,
-})
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const data = useVModel(props, 'modelValue', emit)
@@ -14,13 +11,8 @@ const data = useVModel(props, 'modelValue', emit)
 <template>
   <textarea
     v-model="data"
-    leading-loose
-    p-4 m-0
-    outline-none
-    resize-none
-    font-sans
-    bg-transparent
+    inp
     dark:text-zinc
-    :style="{ fontSize: `${fontSize}rem` }"
+    max-length="600"
   />
 </template>
