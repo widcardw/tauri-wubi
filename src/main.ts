@@ -1,8 +1,21 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import 'uno.css'
 import { createRouter, createWebHistory } from 'vue-router'
-import routes from '~pages'
+import 'uno.css'
+import App from './App.vue'
+
+const routes = [
+  { path: '/', redirect: '/common/Home' },
+  {
+    path: '/common',
+    component: () => import('./layouts/CommonPage.vue'),
+    children: [
+      { path: '/common/Home', component: () => import('./pages/common/Home.vue') },
+      { path: '/common/First', component: () => import('./pages/common/First.vue') },
+      { path: '/common/Second', component: () => import('./pages/common/Second.vue') },
+    ],
+  },
+  { path: '/kbd', component: () => import('./pages/kbd/KeyboardPage.vue') },
+]
 
 const app = createApp(App)
 const router = createRouter({
