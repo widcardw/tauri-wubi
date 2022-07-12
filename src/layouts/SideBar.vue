@@ -9,15 +9,15 @@ const sideItems: Array<{
 }> = [{
   icon: 'i-carbon-home',
   name: '主页',
-  route: '/',
+  route: '/common/Home',
+}, {
+  icon: 'i-carbon-book',
+  name: '第一页',
+  route: '/common/first',
 }, {
   icon: 'i-carbon-keyboard',
-  name: '第一页',
-  route: '/first',
-}, {
-  icon: 'i-carbon-add-alt',
   name: '第二页',
-  route: '/second',
+  route: '/common/second',
 }]
 const router = useRouter()
 </script>
