@@ -20,12 +20,18 @@ const widgetLayout = useStorage('widgetLayout', 'col')
 const leftAreaDisabled = ref(true)
 const sampleText = useStorage('sampleText', '')
 const infoShow = ref(true)
+const errMsg = ref('')
 
 const diff = computed(() => Diff.diffChars(sampleText.value, inputValue.value))
 
 const nextChar = computed((): { char: string; code: string }[] => {
+  // 关闭提示
   if (!infoShow.value)
     return []
+  // 输入长度大于原本长度
+  if (inputValue.value.length > sampleText.value.length)
+    return []
+  // 全部匹配
   if (diff.value.length === 1
   && diff.value[0].count === sampleText.value.length
   && diff.value[0].removed === undefined)
@@ -56,21 +62,39 @@ const nextChar = computed((): { char: string; code: string }[] => {
 const isRefreshing = ref(false)
 const poemFetching = ref(false)
 const getOnePoem = async () => {
+  errMsg.value = ''
   if (isRefreshing.value)
     return
   isRefreshing.value = poemFetching.value = true
-  sampleText.value = await fetchOnePoem()
-  isRefreshing.value = poemFetching.value = false
+  try {
+    sampleText.value = await fetchOnePoem()
+  }
+  catch (e) {
+    console.error(e)
+    errMsg.value = String(e)
+  }
+  finally {
+    isRefreshing.value = poemFetching.value = false
+  }
   inputValue.value = ''
 }
 
 const lunyuFetching = ref(false)
 const getLunYu = async () => {
+  errMsg.value = ''
   if (isRefreshing.value)
     return
   isRefreshing.value = lunyuFetching.value = true
-  sampleText.value = await fetchLunYu()
-  isRefreshing.value = lunyuFetching.value = false
+  try {
+    sampleText.value = await fetchLunYu()
+  }
+  catch (e) {
+    errMsg.value = String(e)
+    console.error(e)
+  }
+  finally {
+    isRefreshing.value = lunyuFetching.value = false
+  }
   inputValue.value = ''
 }
 </script>
@@ -148,7 +172,9 @@ const getLunYu = async () => {
       <div v-for="it in nextChar" :key="it.char" p-4 zb-r>
         {{ it.char }} {{ it.code }}
       </div>
-      <div flex-1 />
+      <div flex-1 p-4 of-x-hidden text-red>
+        {{ errMsg }}
+      </div>
       <div p-4 zb-l>
         {{ inputValue.length }}/{{ sampleText.length }}
       </div>
