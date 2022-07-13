@@ -20,7 +20,7 @@ const line3: letter[] = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
         :indicator="kbd[c].indicator"
       />
     </div>
-    <div flex class="ml-3rem">
+    <div flex class="ml-3em">
       <OneKey
         v-for="c in line2" :key="c"
         :name="kbd[c].name"
@@ -30,7 +30,7 @@ const line3: letter[] = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
         :indicator="kbd[c].indicator"
       />
     </div>
-    <div flex class="ml-6rem">
+    <div flex class="ml-6em">
       <OneKey
         v-for="c in line3" :key="c"
         :name="kbd[c].name"

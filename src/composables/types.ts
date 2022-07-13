@@ -13,7 +13,7 @@ interface LunYu {
 type PartialOnePoem = Partial<OnePoem>
 type PartialLunYu = Partial<LunYu>
 
-const DEFAULT_FONT_SIZE = 3
+const DEFAULT_FONT_SIZE = 2
 
 export type {
   OnePoem,

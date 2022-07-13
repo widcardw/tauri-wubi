@@ -16,7 +16,7 @@ defineProps<{
       </span>
     </div>
     <div flex justify-center space-x-2>
-      <div w-1rem h-1rem text-teal-600>
+      <div text-teal-600>
         {{ indicator }}
       </div>
       <div self-center font-bold>

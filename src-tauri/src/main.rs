@@ -3,7 +3,8 @@
   windows_subsystem = "windows"
 )]
 
-use tauri::Manager;
+use tauri::{Manager};
+
 fn main() {
   tauri::Builder::default()
     .setup(|app| {
