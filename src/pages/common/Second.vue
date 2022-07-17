@@ -5,7 +5,7 @@ import { showKbd } from '../../composables/showKbd'
 
 <template>
   <KeyBoard p-2 />
-  <div text="center zinc-400 dark:zinc-500" cursor-pointer @click="showKbd">
+  <div text="center" icon-btn cursor-pointer @click="showKbd">
     点击打开浮动键盘
   </div>
 </template>

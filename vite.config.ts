@@ -18,7 +18,7 @@ export default defineConfig({
       ],
       shortcuts: [
         ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-        ['icon-btn', 'text-[0.9em] cursor-pointer select-none duration-200 text-zinc-900 dark:text-zinc-500 hover:text-teal-600 !outline-none'],
+        ['icon-btn', 'text-[0.9em] cursor-pointer select-none duration-200 text-zinc-500 dark:text-zinc-400 hover:text-teal-600 !outline-none'],
         [/^zb(-.)?$/, m => `border${m[1] ?? ''}-1 border${m[1] ?? ''}-zinc-200 dark:border${m[1] ?? ''}-zinc-700`],
         ['inp', 'leading-loose p-4 m-0 outline-none resize-none font-sans bg-transparent'],
         ['z4', 'border-1 border-zinc-400 dark:border-zinc-600 border-rounded'],

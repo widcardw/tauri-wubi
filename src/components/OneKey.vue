@@ -4,19 +4,19 @@ defineProps<{
   code: number
   char: string
   strokes: Array<string>
-  indicator?: string
+  indicator: string
 }>()
 </script>
 
 <template>
   <div mkey>
-    <div flex-1 grid grid-cols-4>
-      <span v-for="s in strokes" :key="s" text-center>
+    <div flex-1 grid :class="{ 'grid-cols-4': name !== 'n', 'grid-cols-6': name === 'n' }">
+      <span v-for="s in strokes" :key="s" text-center class="root-font">
         {{ s }}
       </span>
     </div>
-    <div flex justify-center space-x-2>
-      <div text-teal-600>
+    <div grid grid-cols-3 text-center>
+      <div text-teal-600 class="root-font">
         {{ indicator }}
       </div>
       <div self-center font-bold>
@@ -28,3 +28,10 @@ defineProps<{
     </div>
   </div>
 </template>
+
+<style scoped>
+@import url(../styles/root-font.css);
+.root-font {
+  font-family: HanZiRootFont;
+}
+</style>

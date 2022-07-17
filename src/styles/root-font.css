@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "HanZiRootFont";
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/font/HanZiRootFont.woff2) format("woff2"), 
+         url(../assets/font/HanZiRootFont.ttf) format("ttf");
+}
