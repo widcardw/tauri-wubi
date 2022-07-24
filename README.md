@@ -1,4 +1,4 @@
-# Tauri wubi (WIP)
+# Tauri wubi
 
 A tool for practicing wubi input method.
 
