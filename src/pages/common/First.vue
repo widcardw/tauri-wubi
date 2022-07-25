@@ -3,6 +3,8 @@ import { useSessionStorage, useStorage } from '@vueuse/core'
 import { computed, ref } from 'vue'
 import * as Diff from 'diff'
 import { DEFAULT_FONT_SIZE } from '../../composables/types'
+import type { topLvCharType } from '../../data/kbd'
+import { topLvChar, topLvCharDict } from '../../data/kbd'
 import InputArea from '../../components/InputArea.vue'
 import dict from '../../data/wubi86.dict.json'
 import fetchOnePoem from '../../composables/fetchOnePoem'
@@ -46,10 +48,15 @@ const nextChar = computed((): { char: string; code: string }[] => {
   const char3 = sentence.value.slice(0, 3)
   const char4 = sentence.value.slice(0, 4)
   // @ts-expect-error-error
-  const [code1, code2, code3, code4] = [dict[char1], dict[char2], dict[char3], dict[char4]]
+  // eslint-disable-next-line prefer-const
+  let [code1, code2, code3, code4] = [dict[char1], dict[char2], dict[char3], dict[char4]]
   const res = []
-  if (code1)
+  if (code1) {
+    if (topLvChar.includes(char1))
+      code1 = `${topLvCharDict[char1 as topLvCharType]}/${code1}`
+
     res.push({ char: char1, code: code1 })
+  }
   if (char1 !== char2 && code2)
     res.push({ char: char2, code: code2 })
   if (char2 !== char3 && code3)

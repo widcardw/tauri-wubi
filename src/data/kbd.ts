@@ -183,6 +183,43 @@ const kbd = {
   },
 }
 
+const topLvCharDict = {
+  我: 'q',
+  人: 'w',
+  有: 'e',
+  的: 'r',
+  和: 't',
+  主: 'y',
+  产: 'u',
+  不: 'i',
+  为: 'o',
+  这: 'p',
+  工: 'a',
+  要: 's',
+  在: 'd',
+  地: 'f',
+  一: 'g',
+  上: 'h',
+  是: 'j',
+  中: 'k',
+  国: 'l',
+  同: 'm',
+  民: 'n',
+  了: 'b',
+  发: 'v',
+  以: 'c',
+  经: 'x',
+}
+
+const topLvChar = Object.keys(topLvCharDict)
+
 export default kbd
 
-export type letter = keyof(typeof kbd)
+export { topLvCharDict, topLvChar }
+
+type letter = keyof(typeof kbd)
+type topLvCharType = keyof(typeof topLvCharDict)
+
+export type {
+  letter, topLvCharType,
+}
